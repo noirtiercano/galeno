@@ -7,8 +7,9 @@ if (isset($_GET["btn-agregar"])) {
     $user = $_GET["user"];
     $email = $_GET["email"];
     $tel = $_GET["telefono"];
+    $identificacion = $_GET["identificacion"];
 
-    $sql = "INSERT INTO clientes (nombre, email, telefono) VALUES ('$user',  '$email', '$tel')";
+    $sql = "INSERT INTO clientes (nombre, email, telefono, identificacion) VALUES ('$user',  '$email', '$tel', '$identificacion')";
 
     if (mysqli_query($conn, $sql)) {
         echo " <br> Nuevo cliente agregado exitosamente";

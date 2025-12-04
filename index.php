@@ -70,7 +70,7 @@
                         <div class="stats-grid">
                             <div class="stat-item">
                                 <span class="stat-label">Total Productos</span>
-                                <span class="stat-value" id="totalProductos"></span>
+                                <span class="stat-value" id="totalProductos"><?php echo "hola" ?></span>
                             </div>
                             <div class="stat-item">
                                 <span class="stat-label">Stock Total</span>

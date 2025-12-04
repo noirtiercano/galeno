@@ -1,6 +1,6 @@
 <?php
 session_start();
-include($_SERVER['DOCUMENT_ROOT'] ."/php/conexion.php");
+include($_SERVER['DOCUMENT_ROOT'] . "/php/conexion.php");
 $total_compra = 0;
 ?>
 
@@ -47,28 +47,28 @@ $total_compra = 0;
         </div>
       </header>
 
-       <div class="table-container">
-                    <table id="productosTable">
-                        <thead>
-                            <tr>
-                                <th>Código</th> 
-                                <th>Producto</th>
-                                <th>Precio UNIT</th>
-                                <th>Cantidad</th>
-                                <th>Subtotal</th>
-                                <th>Acciones</th>
-                            </tr>
-                        </thead>
-                        <tbody id="productosBody">
-                             <?php include('php/carrito/mostrar_carrito.php'); ?> 
-                        </tbody>
-                    </table>
-          </div>
+      <div class="table-container">
+        <table id="productosTable">
+          <thead>
+            <tr>
+              <th>Código</th>
+              <th>Producto</th>
+              <th>Precio UNIT</th>
+              <th>Cantidad</th>
+              <th>Subtotal</th>
+              <th>Acciones</th>
+            </tr>
+          </thead>
+          <tbody id="productosBody">
+            <?php include('php/carrito/mostrar_carrito.php'); ?>
+          </tbody>
+        </table>
+      </div>
 
-                <div style="display: flex; justify-content: space-between; font-size: 1.25rem">
-                  <span>Total:</span>
-                  <span id="totalDisplay" style="color: black">$<?php echo number_format($_SESSION['total_compra'] ?? 0, 0); ?></span>
-                </div>
+      <div style="display: flex; justify-content: space-between; font-size: 1.25rem">
+        <span>Total:</span>
+        <span id="totalDisplay" style="color: black">$<?php echo number_format($_SESSION['total_compra'] ?? 0, 0); ?></span>
+      </div>
 
 
 
@@ -79,43 +79,43 @@ $total_compra = 0;
           <div>
 
 
-      <!-- DATOS DEL CLIENTE -->
-      <div class="dashboard-card" style="margin-top: 2rem">
-          <h3>Información del Cliente</h3>
-          <form action="php/carrito/procesar_pago.php" method="POST" id="formPago">
-              <div class="form-group">
+            <!-- DATOS DEL CLIENTE -->
+            <div class="dashboard-card" style="margin-top: 2rem">
+              <h3>Información del Cliente</h3>
+              <form action="php/carrito/procesar_pago.php" method="POST" id="formPago">
+                <div class="form-group">
                   <label>Identificación del Cliente *</label>
                   <input type="text" name="cliente_identificacion" placeholder="Cédula o ID" required />
-              </div>
-              <div class="form-group">
+                </div>
+                <div class="form-group">
                   <label>Nombre del Cliente</label>
                   <input type="text" name="cliente_nombre" placeholder="Nombre del cliente" />
-              </div>
-              <div class="form-group">
+                </div>
+                <div class="form-group">
                   <label>Teléfono (Opcional)</label>
                   <input type="tel" name="cliente_telefono" placeholder="Teléfono" />
-              </div>
-          </form>
-      </div>
+                </div>
+              </form>
+            </div>
 
-      <!-- BOTONES -->
-      <div style="margin-top: 1.5rem; display: flex; flex-direction: column; gap: 0.5rem">
-          <button type="submit" form="formPago" class="btn btn-success btn-block">
-              💳 Procesar Pago
-          </button>
-          
-          <form action="php/carrito/vaciar_carrito.php" method="POST">
-              <button type="submit" class="btn btn-outline btn-block">
-                  🗑️ Vaciar Carrito
+            <!-- BOTONES -->
+            <div style="margin-top: 1.5rem; display: flex; flex-direction: column; gap: 0.5rem">
+              <button type="submit" form="formPago" class="btn btn-success btn-block">
+                💳 Procesar Pago
               </button>
-          </form>
-      </div>
 
-          <!-- RIGHT: CARRITO Y RESUMEN -->
+              <form action="php/carrito/vaciar_carrito.php" method="POST">
+                <button type="submit" class="btn btn-outline btn-block">
+                  🗑️ Vaciar Carrito
+                </button>
+              </form>
+            </div>
 
-          
+            <!-- RIGHT: CARRITO Y RESUMEN -->
 
-          <!-- <div> 
+
+
+            <!-- <div> 
               <div class="dashboard-card" style="margin-bottom: 2rem; max-height: 400px; overflow-y: auto">
                 <h3>Carrito de Compra</h3>
                 <div id="cartItems" style="display: flex; flex-direction: column; gap: 1rem">
@@ -154,13 +154,13 @@ $total_compra = 0;
             </div>
           </div>
         </div> -->
-      </main>
-    </div>
+    </main>
+  </div>
 
-            <script src="js/utils.js"></script>
-            <script src="js/ventas.js"></script>
+  <script src="js/utils.js"></script>
+  <script src="js/ventas.js"></script>
 
-            
+
 </body>
 
 </html>

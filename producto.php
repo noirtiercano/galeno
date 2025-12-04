@@ -93,7 +93,7 @@ if(!isset($_SESSION['user'])){
                             </tr>
                         </thead>
                         <tbody id="productosBody">
-                            <?php include('php/productos/mostrar_inventario.php'); ?>
+                            <?php include('php/productos/mostrar_producto.php'); ?>
                         </tbody>
                     </table>
                 </div>

@@ -2,6 +2,13 @@
 
 include($_SERVER['DOCUMENT_ROOT'] ."/php/conexion.php");
 
+if(isset($_GET['busqueda'])){
+    $sql = "SELECT * FROM entradas WHERE nombre LIKE '%".$_GET['busqueda']."%'";
+}else{
+    $sql = "SELECT * FROM entradas";
+}
+
+
 $sql = "SELECT entradas.*, proveedores.nombre as nombre_proveedor 
         FROM entradas 
         LEFT JOIN proveedores ON entradas.proveedor_id = proveedores.id 

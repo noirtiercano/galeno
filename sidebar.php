@@ -55,7 +55,7 @@ $rol_usuario = $_SESSION['rol'] ?? '';
     <?php if ($rol_usuario == 'admin') { ?>
         <!-- Configuración: Solo admin -->
         <li><a href="configuracion.php" class="nav-link <?php if($pagina=="configuracion"){echo "active";}?>" data-module="configuracion">
-                <span class="icon">📈</span>
+                <span class="icon">⚙️</span>
                 <span>Configuración</span>
             </a></li>
     <?php } ?>

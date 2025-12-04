@@ -6,9 +6,9 @@ include($_SERVER['DOCUMENT_ROOT'] . "/php/conexion.php");
 $rol_usuario = $_SESSION['rol']; 
 
 if(isset($_GET['busqueda'])){
-    $sql = "SELECT * FROM productos WHERE nombre LIKE '%".$_GET['busqueda']."%' AND activo = 1";
+    $sql = "SELECT * FROM productos WHERE nombre LIKE '%".$_GET['busqueda']."%'";
 }else{
-    $sql = "SELECT * FROM productos WHERE activo = 1";
+    $sql = "SELECT * FROM productos";
 }
 $result = mysqli_query($conn, $sql);
 

@@ -1,6 +1,6 @@
 <?php
 session_start();
-include($_SERVER['DOCUMENT_ROOT'] ."/php/conexion.php");
+include($_SERVER['DOCUMENT_ROOT'] . "/php/conexion.php");
 
 if (!isset($_SESSION['user_id'])) {
     header("Location: ../../login1.php");
@@ -23,17 +23,17 @@ if (mysqli_num_rows($result) == 0) {
 while ($row = mysqli_fetch_assoc($result)) {
     $producto_id = $row['producto_id'];
     $cantidad = $row['cantidad'];
-    
+
     // Obtener precio del producto
     $sql_producto = "SELECT precio FROM productos WHERE id = '$producto_id'";
     $result_producto = mysqli_query($conn, $sql_producto);
     $producto = mysqli_fetch_assoc($result_producto);
-    
+
     $precio_unitario = $producto['precio'];
     $total = $precio_unitario * $cantidad;
-    
+
     // Insertar en salidas
-    $sql_salida = "INSERT INTO salidas (producto_id, cantidad, precio_unitario, total, cliente_identificación, fecha_venta) 
+    $sql_salida = "INSERT INTO salidas (producto_id, cantidad, precio_unitario, total, cliente_identificacion, fecha_venta) 
                    VALUES ('$producto_id', '$cantidad', '$precio_unitario', '$total', '$cliente_identificacion', NOW())";
     mysqli_query($conn, $sql_salida);
 }
@@ -48,4 +48,3 @@ mysqli_close($conn);
 
 header("Location: ../../carrito.php");
 exit();
-?>

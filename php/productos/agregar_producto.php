@@ -15,6 +15,14 @@ if (isset($_GET["btn-agregar"])) {
     $cod_producto = $_GET["cod_producto"];
     $proveedor_id =  $_GET["proveedor_id"]; 
 
+    $sql_verificar = "SELECT codigo FROM productos WHERE codigo = '$cod_producto'";
+    $resultado = mysqli_query($conn, $sql_verificar);
+
+    if (mysqli_num_rows($resultado) > 0) {
+    echo "Error: El código '$cod_producto' ya está registrado.";
+    exit();
+    }
+
     $sql_producto = "INSERT INTO productos (codigo, nombre, descripcion, precio, stock, lote, fecha_caducidad, fecha_creacion, fecha_actualizacion, activo) VALUES ('$cod_producto', '$nombre', '$descripcion', '$precio', '$cantidad', '$num_lote', '$fecha_caducidad',  NOW(), NOW(), '1')";
 
     if (mysqli_query($conn, $sql_producto)) {

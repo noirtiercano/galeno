@@ -12,8 +12,8 @@ if (mysqli_num_rows($result) > 0) {
                 <td>'.$row['nombre'].'</td>
                 <td>'.$row['correo'].'</td>
                 <td>'.$row['rol'].'</td>
-                <td><a href="php/productos/editar_producto.php?id='.$row['id'].'">✏️</a></td>
-                <td><a href="php/productos/eliminar_producto.php?id='.$row['id'].'" onclick="return confirm(\'Estás seguro de eliminar?\')">🗑️</a></td>
+                <td><a href="php/configuracion/editar_usuario.php?id='.$row['id'].'">✏️</a></td>
+                <td><a href="php/configuracion/eliminar_usuario.php?id='.$row['id'].'" onclick="return confirm(\'Estás seguro de eliminar?\')">🗑️</a></td>
               </tr>';
 
     }

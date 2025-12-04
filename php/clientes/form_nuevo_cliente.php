@@ -22,6 +22,10 @@
                 <input type="text" id="clienteNombre" name="user" required />
             </div>
             <div class="form-group">
+                <label>Identificación *</label>
+                <input type="text" id="clienteNombre" name="identificacion" required />
+            </div>
+            <div class="form-group">
                 <label>Teléfono</label>
                 <input type="tel" id="clienteTelefono" name="telefono" />
             </div>
