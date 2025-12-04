@@ -1,0 +1,78 @@
+<?php
+
+include($_SERVER['DOCUMENT_ROOT'] . "/php/conexion.php");
+
+
+
+$rol_usuario = $_SESSION['rol']; // Obtener el rol del usuario actual
+
+$sql = "SELECT * FROM productos WHERE activo = 1";
+$result = mysqli_query($conn, $sql);
+
+if (mysqli_num_rows($result) > 0) {
+    while ($row = mysqli_fetch_assoc($result)) {
+
+        $entrada = 0;
+        $salida = 0;
+        
+        $sql2 = "SELECT SUM(stock) as TOTAL FROM entradas WHERE producto_id = '".$row['id']."';";
+        $result2 = mysqli_query($conn, $sql2);
+
+        if (mysqli_num_rows($result2) > 0) {
+            while ($row2 = mysqli_fetch_assoc($result2)) {
+                $entrada = $row2['TOTAL'];
+            }
+        }
+        $sql2 = "SELECT SUM(cantidad) as TOTAL FROM salidas WHERE producto_id = '".$row['id']."';";
+        $result2 = mysqli_query($conn, $sql2);
+
+        if (mysqli_num_rows($result2) > 0) {
+            while ($row2 = mysqli_fetch_assoc($result2)) {
+                $salida = $row2['TOTAL'];
+            }
+        }
+        $stock = $entrada - $salida;
+        
+        echo '<tr>
+                <td>' . $row['nombre'] . '</td>
+                <td>' . $row['descripcion'] . '</td>
+                <td>' . $row['precio'] . '</td>
+                <td>' . $stock . '</td>
+                <td>' . $row['lote'] . '</td>
+                <td>' . $row['fecha_caducidad'] . '</td>
+                <td>';
+                
+        if ($row['activo'] == 1) {
+            echo "Activo";
+        } else {
+            echo "No Activo";
+        }
+        
+        echo '</td>
+              <td>
+                  <form action="../../php/carrito/agregar_carrito.php" method="POST" style="display:inline;">
+                      <input type="hidden" name="producto_id" value="' . $row['id'] . '">
+                      <input type="hidden" name="cantidad" value="1">
+                      <button type="submit" style="background:none; border:none; cursor:pointer; font-size:18px;">
+                          🛒
+                      </button>
+                  </form>
+              </td>';
+        
+        // SOLO EL ADMIN VE LOS BOTONES DE EDITAR Y ELIMINAR
+        if ($rol_usuario == 'admin') {
+            echo '<td><a href="php/productos/editar_producto.php?id='.$row['id'].'">✏️</a></td>';
+            echo '<td><a href="php/productos/eliminar_producto.php?id='.$row['id'].'" onclick="return confirm(\'Estás seguro de eliminar?\')">🗑️</a></td>';
+        } else {
+            // Para farmacéutico y cajero, dejar las celdas vacías
+            echo '<td></td>';
+            echo '<td></td>';
+        }
+        
+        echo '</tr>';
+    }
+} else {
+    //echo "<br> 0 resultados";
+}
+
+?>
