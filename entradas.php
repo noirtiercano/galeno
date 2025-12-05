@@ -10,7 +10,7 @@
 
 <body>
     <div class="app-container">
-        <!-- SIDEBAR NAVIGATION -->
+
         <nav class="sidebar">
             <div class="sidebar-header">
                 <div class="logo">
@@ -27,33 +27,25 @@
 
             <div class="sidebar-footer">
                 <a href="log_out.php" class="logout-btn">Cerrar sesión</a>
-                <!-- <button class="logout-btn" onclick="confirmarCierre()">
-            🚪 Cerrar Sesión
-          </button> -->
             </div>
         </nav>
      
      <main class="main-content">
-            <!-- HEADER -->
+
             <header class="top-header">
                 <h2>Entradas</h2>
                 <div class="header-actions">
-                    <span class="user-info">Admin</span>
+                    <span class="user-info"><?php include('php/header.php'); ?></span>
                     <span class="date-time" id="dateTime"></span>
                 </div>
             </header>
 
-            <!-- CONTENT AREA -->
             <div class="content-wrapper">
-                <!-- CONTROLES Y FILTROS -->
-                <div class="controls-section">
-                    <!-- <button class="btn btn-primary" onclick="openProductModal()">
-                        ➕ <a href="php/productos/form_nuevo_producto.php">Nuevo Producto</a>
-                    </button> -->
 
+                <div class="controls-section">
                     <div class="filters-section">
                     <button class="btn btn-primary" onclick="openProductModal()">
-                        ➕ <a href="php/productos/form_nuevo_producto.php">Nuevo Producto</a>
+                        ➕ <a href="php/productos/form_nuevo_producto.php">Nueva Entrada</a>
                     </button>
                     
                          <form action="" method="get">
@@ -64,12 +56,12 @@
                     </div>
                 </div>
 
-                <!-- TABLA DE PRODUCTOS -->
+
                 <div class="table-container">
+                    <h4>Historial de Entradas</h4>
                     <table id="productosTable">
                         <thead>
                             <tr>
-                                <!-- <th>Código</th> -->
                                 <th>Fecha</th>
                                 <th>Proveedor</th>
                                 <th>Código</th>

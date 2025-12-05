@@ -37,8 +37,26 @@
                 </select>
             </div>
 
+
+
             <div class="form-group">
-                <label>Código del producto *</label>
+                <label>Producto *</label>
+                <select name="producto_id" id="select_producto" required>
+                    <option value="">Seleccione un producto</option>
+                    <option value="nuevo">➕ Crear producto nuevo</option>
+                    <?php
+                    include($_SERVER['DOCUMENT_ROOT'] ."/php/conexion.php");
+                    $productos = mysqli_query($conn, "SELECT id, codigo, nombre FROM productos WHERE activo = 1 ORDER BY nombre");
+                    while($producto = mysqli_fetch_assoc($productos)){
+                        echo "<option value='{$producto['id']}'>{$producto['codigo']} - {$producto['nombre']}</option>";
+                    }
+                    mysqli_close($conn);
+                    ?>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>Código del Producto *</label>
                 <input type="text" id="clienteNombre" name="cod_producto" required />
             </div>
             <div class="form-group">

@@ -36,13 +36,13 @@ $total_compra = 0;
       </div>
     </aside>
 
-    <!-- MAIN CONTENT -->
+
     <main class="main-content">
-      <!-- HEADER -->
+
       <header class="top-header">
         <h2>Carrito</h2>
         <div class="header-actions">
-          <span class="user-info">👤 Farmacéutico</span>
+          <span class="user-info"><?php include('php/header.php'); ?></span>
           <span class="date-time" id="dateTime"></span>
         </div>
       </header>
@@ -72,14 +72,12 @@ $total_compra = 0;
 
 
 
-      <!-- CONTENT -->
+
       <div class="content-wrapper">
         <div style="display: grid; grid-template-columns: 1fr 400px; gap: 2rem">
-          <!-- LEFT: BÚSQUEDA Y CARRITO -->
           <div>
 
 
-            <!-- DATOS DEL CLIENTE -->
             <div class="dashboard-card" style="margin-top: 2rem">
               <h3>Información del Cliente</h3>
               <form action="php/carrito/procesar_pago.php" method="POST" id="formPago">
@@ -98,7 +96,7 @@ $total_compra = 0;
               </form>
             </div>
 
-            <!-- BOTONES -->
+
             <div style="margin-top: 1.5rem; display: flex; flex-direction: column; gap: 0.5rem">
               <button type="submit" form="formPago" class="btn btn-success btn-block">
                 💳 Procesar Pago
@@ -111,49 +109,7 @@ $total_compra = 0;
               </form>
             </div>
 
-            <!-- RIGHT: CARRITO Y RESUMEN -->
 
-
-
-            <!-- <div> 
-              <div class="dashboard-card" style="margin-bottom: 2rem; max-height: 400px; overflow-y: auto">
-                <h3>Carrito de Compra</h3>
-                <div id="cartItems" style="display: flex; flex-direction: column; gap: 1rem">
-                  <div class="empty-state"></div>
-                </div>
-              </div>
-
-         RESUMEN DE TOTALES 
-              <div class="dashboard-card" style="background-color: #f0f9ff; border: 2px solid var(--color-secondary)">
-                <h3 style="color: var(--color-secondary)">Resumen de Venta</h3>
-                
-                <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem">
-                  <span>Subtotal:</span>
-                  <strong id="subtotalDisplay">€ 0.00</strong>
-                </div>
-                
-                <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem">
-                  <span>IVA (21%):</span>
-                  <strong id="ivaDisplay">€ 0.00</strong>
-                </div>
-                
-                <div style="display: flex; justify-content: space-between; margin-bottom: 1rem; padding-bottom: 1rem; border-bottom: 2px solid var(--color-secondary)">
-                  <span>Descuento:</span>
-                  <strong id="discountDisplay">€ 0.00</strong>
-                </div>
-                
-                
-
-                
-                <div style="margin-top: 1rem; padding-top: 1rem; border-top: 1px solid var(--color-secondary-light)">
-                  <button class="btn btn-danger btn-sm btn-block" onclick="abrirModalDevolucion()">
-                    ↩️ Devolución/Anulación
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div> -->
     </main>
   </div>
 

@@ -15,7 +15,7 @@ if(isset($_GET["user_id"])){
     } else {
         echo "Error al eliminar";
         $_SESSION['msj_error'] = "error al eliminar";
-        header("location: ../../login1.php");
+        header("location: ../../index.php");
     }
 
 }

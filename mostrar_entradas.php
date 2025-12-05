@@ -24,7 +24,7 @@ if (mysqli_num_rows($result) > 0) {
                 <td>'.$row['nombre_proveedor'].'</td>
                 <td>'.$row['codigo'].'</td>
                 <td>'.$row['nombre'].'</td>
-                <td>'.$row['stock'].'</td>
+                <td>'.$row['cantidad'].'</td>
                 <td>'.$row['precio'].'</td>
                 <td>'.$row['lote'].'</td>
                 <td>'.$row['fecha_caducidad'].'</td>

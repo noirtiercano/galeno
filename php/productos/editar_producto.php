@@ -90,16 +90,6 @@ mysqli_close($conn);
             </div>
             
             <div class="form-group">
-                <label>Lote</label>
-                <input type="text" name="lote_edit" value="<?php echo $lote; ?>" />
-            </div>
-            
-            <div class="form-group">
-                <label>Fecha de Caducidad</label>
-                <input type="date" name="fecha_caducidad_edit" value="<?php echo $fecha_caducidad; ?>" />
-            </div>
-
-            <div class="form-group">
                 <label for="activo_edit">Estado:</label>
                 <select id="activo_edit" name="activo_edit">
                     <option value="1" <?php if($activo==1){ echo "selected";}?>>Activo</option>
@@ -112,7 +102,7 @@ mysqli_close($conn);
             </button>
 
             <button class="btn btn-outline" type="button">
-                <a href="../../inventario.php">Cancelar</a>
+                <a href="../../productos.php">Cancelar</a>
             </button>
         </form>
     </div>

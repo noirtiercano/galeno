@@ -13,7 +13,7 @@ if (isset($_GET["btn-agregar"])) {
 
     if (mysqli_query($conn, $sql)) {
         echo " <br> Nuevo usuario agregado exitosamente";
-        header("location: index.php");
+        header("location: dashboard.php");
     } else {
         echo "Error: " . $sql . "<br>" . mysqli_error($conn);
     }
@@ -56,18 +56,18 @@ mysqli_close($conn);
       </div>
     </aside>
 
-    <!-- MAIN CONTENT -->
+
     <main class="main-content">
-      <!-- HEADER -->
+
       <header class="top-header">
         <h2>Configuración de Usuarios</h2>
         <div class="header-actions">
-          <span class="user-info">👤 Farmacéutico</span>
+          <span class="user-info"><?php include('php/header.php'); ?></span>
           <span class="date-time" id="dateTime"></span>
         </div>
       </header>
 
-      <!-- CONTENT -->
+
       <div class="content-wrapper">
         <div style="display: flex; gap: 2rem; margin-bottom: 2rem">
           <button class="btn btn-primary" onclick="abrirModalAgregarCliente()">

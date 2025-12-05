@@ -1,6 +1,6 @@
 <?php
 
-// Verificar que el usuario está logueado
+
 if (!isset($_SESSION['user_id'])) {
     echo '<tr><td colspan="6" style="text-align:center;">Debes iniciar sesión</td></tr>';
     exit();
@@ -9,10 +9,7 @@ if (!isset($_SESSION['user_id'])) {
 $usuario_id = $_SESSION['user_id'];
 
 // Obtener los productos del carrito de este usuario
-$sql = "SELECT c.*, p.codigo, p.nombre, p.descripcion, p.precio 
-        FROM carritos c 
-        INNER JOIN productos p ON c.producto_id = p.id 
-        WHERE c.usuario_id = '$usuario_id'";
+$sql = "SELECT * FROM carritos WHERE usuario_id = '$usuario_id'";
 $result = mysqli_query($conn, $sql);
 
 if (mysqli_num_rows($result) == 0) {
@@ -21,13 +18,20 @@ if (mysqli_num_rows($result) == 0) {
     $total_compra = 0;
     
     while ($row = mysqli_fetch_assoc($result)) {
-        $subtotal = $row['precio'] * $row['cantidad'];
+        
+
+        $producto_id = $row['producto_id'];
+        $sql_producto = "SELECT codigo, nombre, descripcion, precio FROM productos WHERE id = '$producto_id'";
+        $result_producto = mysqli_query($conn, $sql_producto);
+        $producto = mysqli_fetch_assoc($result_producto);
+        
+        $subtotal = $producto['precio'] * $row['cantidad'];
         $total_compra += $subtotal;
         
         echo '<tr>
-                <td>' . $row['codigo'] . '</td>
-                <td>' . $row['nombre'] . '</td>
-                <td>$' . number_format($row['precio'], 0) . '</td>
+                <td>' . $producto['codigo'] . '</td>
+                <td>' . $producto['nombre'] . '</td>
+                <td>$' . number_format($producto['precio'], 0) . '</td>
                 <td>
                     <form action="php/carrito/actualizar_cantidad.php" method="POST" style="display:inline;">
                         <input type="hidden" name="producto_id" value="' . $row['producto_id'] . '">
@@ -50,5 +54,7 @@ if (mysqli_num_rows($result) == 0) {
     // Guardar el total en sesión para mostrarlo
     $_SESSION['total_compra'] = $total_compra;
 }
+
+mysqli_close($conn);
 
 ?>

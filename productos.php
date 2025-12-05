@@ -39,7 +39,7 @@
             <header class="top-header">
                 <h2>Inventario - Gestión de Productos</h2>
                 <div class="header-actions">
-                    <span class="user-info">Admin</span>
+                    <span class="user-info"><?php include('php/header.php'); ?></span>
                     <span class="date-time" id="dateTime"></span>
                 </div>
             </header>
@@ -59,17 +59,6 @@
                             <input type="submit" value="Buscar" name="btnBuscar">
                         </form>
 
-
-
-
-
-
-
-
-
-
-
-
                         <select id="filterStatus" class="filter-select" onchange="filtrarProductos()">
                             <option value="">Todos los estados</option>
                             <option value="stock-bajo">Stock Bajo</option>
@@ -84,19 +73,17 @@
                     <table id="productosTable">
                         <thead>
                             <tr>
-                                <!-- <th>Código</th> -->
+                                <th>Código</th>
                                 <th>Nombre</th>
+                                <th>Descripción</th>
+                                <th>Stock</th>
                                 <th>Precio</th>
-                                <!-- <th>Stock</th> -->
-                                <!-- <th>Lote</th>
-                                <th>Caducidad</th> -->
-                                <!-- <th>Cantidad</th> -->
                                 <th>Estado</th>
                                 <th>Acciones</th>
                             </tr>
                         </thead>
                         <tbody id="productosBody">
-                            <?php include('php/productos/mostrar_productos.php'); ?>
+                            <?php include('php/productos/mostrar_productos.back.php'); ?>
                         </tbody>
                     </table>
                 </div>

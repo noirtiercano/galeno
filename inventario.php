@@ -3,7 +3,7 @@ session_start(); // AL INICIO DE CADA PÁGINA PRINCIPAL
 
 // Verificar login
 if(!isset($_SESSION['user'])){
-    header("location: login1.php");
+    header("location: index.php");
     exit();
 }
 ?>
@@ -48,7 +48,7 @@ if(!isset($_SESSION['user'])){
             <header class="top-header">
                 <h2>Inventario - Gestión de Productos</h2>
                 <div class="header-actions">
-                    <span class="user-info">Admin</span>
+                    <span class="user-info"><?php include('php/header.php'); ?></span>
                     <span class="date-time" id="dateTime"></span>
                 </div>
             </header>
@@ -76,7 +76,7 @@ if(!isset($_SESSION['user'])){
                     </div>
                 </div>
 
-                <!-- TABLA DE PRODUCTOS -->
+
                 <div class="table-container">
                     <table id="productosTable">
                         <thead>

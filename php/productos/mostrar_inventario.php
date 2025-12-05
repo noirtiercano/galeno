@@ -19,7 +19,7 @@ if (mysqli_num_rows($result) > 0) {
         $entrada = 0;
         $salida = 0;
         
-        $sql2 = "SELECT SUM(stock) as TOTAL FROM entradas WHERE producto_id = '".$row['id']."';";
+        $sql2 = "SELECT SUM(cantidad) as TOTAL FROM entradas WHERE producto_id = '".$row['id']."';";
         $result2 = mysqli_query($conn, $sql2);
 
         if (mysqli_num_rows($result2) > 0) {
@@ -66,8 +66,7 @@ if (mysqli_num_rows($result) > 0) {
         
 
         if ($rol_usuario == 'admin') {
-            echo '<td><a href="php/productos/editar_producto.php?id='.$row['id'].'">✏️</a></td>';
-            echo '<td><a href="php/productos/eliminar_producto.php?id='.$row['id'].'" onclick="return confirm(\'Estás seguro de eliminar?\')">🗑️</a></td>';
+            echo '<td><a href="php/productos/cambiar_estado.php?id='.$row['id'].'">✏️</a></td>';
         } else {
 
             echo '<td></td>';

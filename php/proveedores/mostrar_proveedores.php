@@ -13,8 +13,8 @@ if (mysqli_num_rows($result) > 0) {
                 <td>'.$row['email'].'</td>
                 <td>'.$row['telefono'].'</td>
                 <td>'.$row['direccion'].'</td>
-                <td><a href="php/proveedores/editar_proveedor.php?id='.$row['id'].'">Editar</a></td>
-                <td><a href="php/proveedores/eliminar_proveedor.php?user_id='.$row['id'].'" onclick="return confirm(\'Estás seguro de eliminar?\')">Eliminar</a></td>
+                <td><a href="php/proveedores/editar_proveedor.php?id='.$row['id'].'">✏️</a></td>
+                <td><a href="php/proveedores/eliminar_proveedor.php?user_id='.$row['id'].'" onclick="return confirm(\'Estás seguro de eliminar?\')">🗑️</a></td>
               </tr>';
 
     }

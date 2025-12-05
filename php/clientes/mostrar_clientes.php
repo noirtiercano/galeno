@@ -6,19 +6,22 @@ $sql = "SELECT * FROM clientes";
 $result = mysqli_query($conn, $sql);
 
 if (mysqli_num_rows($result) > 0) {
-    while($row = mysqli_fetch_assoc($result)) {
-        
-         echo '<tr>
-                <td>'.$row['nombre'].'</td>
-                <td>'.$row['telefono'].'</td>
-                <td>'.$row['email'].'</td>
-                <td><a href="php/clientes/editar_cliente.php?id='.$row['id'].'">Editar</a></td>
-                <td><a href="php/clientes/eliminar_cliente.php?user_id='.$row['id'].'" onclick="return confirm(\'Estás seguro de eliminar?\')">Eliminar</a></td>
-              </tr>';
+while ($row = mysqli_fetch_assoc($result)) {
 
-    }
-} else {
-    //echo "<br> 0 resultados";
+    echo '<tr>
+            <td>'.$row['nombre'].'</td>
+            <td>'.$row['telefono'].'</td>
+            <td>'.$row['email'].'</td>';
     
+    if ($rol_usuario == 'admin') {
+        echo '<td>
+                <a href="php/configuracion/editar_usuario.php?id='.$row['id'].'">✏️</a>
+                <a href="php/configuracion/eliminar_usuario.php?id='.$row['id'].'" onclick="return confirm(\'¿Seguro que deseas eliminar?\')">🗑️</a>
+              </td>';
+    }
+
+    echo '</tr>';
+}
+
 }
 ?>

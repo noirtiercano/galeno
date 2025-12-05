@@ -10,7 +10,7 @@
 
 <body>
     <div class="app-container">
-        <!-- SIDEBAR NAVIGATION -->
+
         <nav class="sidebar">
             <div class="sidebar-header">
                 <div class="logo">
@@ -38,7 +38,7 @@
             <header class="top-header">
                 <h2>Salidas</h2>
                 <div class="header-actions">
-                    <span class="user-info">Admin</span>
+                    <span class="user-info"><?php include('php/header.php'); ?></span>
                     <span class="date-time" id="dateTime"></span>
                 </div>
             </header>
@@ -51,23 +51,17 @@
 
                         <?php include('busqueda.php'); ?>
 
-                        <select id="filterStatus" class="filter-select" onchange="filtrarProductos()">
-                            <option value="">Todos los estados</option>
-                            <option value="stock-bajo">Stock Bajo</option>
-                            <option value="proximo-vencer">Próximo a Vencer</option>
-                            <option value="ok">OK</option>
-                        </select>
                     </div>
                 </div>
 
-                <!-- TABLA DE PRODUCTOS -->
+
                 <div class="table-container">
                     <table id="productosTable">
                         <thead>
                             <tr>
                                 <th>Fecha</th>
                                 <th>Cliente</th>
-                                <th>Código</th>
+                                <th>ID</th>
                                 <th>Producto</th>
                                 <th>Cantidad</th>
                                 <th>Precio UNIT</th>

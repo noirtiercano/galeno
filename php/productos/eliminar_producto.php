@@ -1,9 +1,9 @@
 <?php 
 include($_SERVER['DOCUMENT_ROOT'] ."/php/conexion.php");
 
-if(isset($_GET["producto_id"])){
+if(isset($_GET["id"])){
 
-    $producto_id = $_GET["producto_id"];
+    $producto_id = $_GET["id"];
     $sql = "DELETE FROM productos WHERE `productos`.`id` = $producto_id";
     
 
@@ -11,11 +11,11 @@ if(isset($_GET["producto_id"])){
 
     if (mysqli_query($conn, $sql)){
         echo "Producto eliminado";
-        header("location: ../../inventario.php");
+        header("location: ../../productos.php");
     } else {
         echo "Error al eliminar";
         $_SESSION['msj_error'] = "error al eliminar";
-        header("location: ../../login1.php");
+        header("location: ../../productos.php");
     }
 
 }

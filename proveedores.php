@@ -34,7 +34,7 @@
         <header class="top-header">
           <h2>Gestión de Proveedores y Compras</h2>
           <div class="header-actions">
-            <span class="user-info">👤 Farmacéutico</span>
+            <span class="user-info"><?php include('php/header.php'); ?></span>
             <span class="date-time" id="dateTime"></span>
           </div>
         </header>
@@ -60,11 +60,6 @@
                   </tr>
                 </thead>
                 <tbody id="proveedoresTable">
-                  <!-- <tr>
-                    <td colspan="5" style="text-align: center; color: var(--color-gray-400)">
-                      Cargando proveedores...
-                    </td>
-                  </tr> -->
                   <?php include('php/proveedores/mostrar_proveedores.php');?>
                 </tbody>
               </table>

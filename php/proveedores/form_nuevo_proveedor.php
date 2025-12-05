@@ -19,7 +19,7 @@
         <form id="clienteForm" action="agregar_proveedor.php" method="get">
             <div class="form-group">
                 <label>Nombre *</label>
-                <input type="text" id="clienteNombre" name="user" required />
+                <input type="text" id="clienteNombre" name="nombre" required />
             </div>
 
             <div class="form-group">

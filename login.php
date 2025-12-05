@@ -24,19 +24,19 @@ if (isset($_POST["btnSave"])) {
 
         // Redirigir según el rol
         if($rol == "admin"){
-            header("location: index.php");
+            header("location: dashboard.php");
             exit();
         } else if($rol == "farmaceutico"){
-            header("location: index.php");
+            header("location: dashboard.php");
             exit();
         } else if($rol == "cajero"){
-            header("location: index.php");
+            header("location: dashboard.php");
             exit();
         }
         
     } else {
         $_SESSION['msj_error'] = "Usuario, contraseña o rol incorrectos";
-        header("location: login1.php");
+        header("location: index.php");
         exit();
     }
 }

@@ -3,7 +3,7 @@ session_start(); // AL INICIO DE CADA PÁGINA PRINCIPAL
 
 // Verificar login
 if(!isset($_SESSION['user'])){
-    header("location: login1.php");
+    header("location: index.php");
     exit();
 }
 ?>
