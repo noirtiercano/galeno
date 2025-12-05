@@ -28,9 +28,9 @@
         </div>
       </aside>
 
-      <!-- MAIN CONTENT -->
+
       <main class="main-content">
-        <!-- HEADER -->
+
         <header class="top-header">
           <h2>Gestión de Proveedores y Compras</h2>
           <div class="header-actions">
@@ -39,9 +39,9 @@
           </div>
         </header>
 
-        <!-- CONTENT -->
+
         <div class="content-wrapper">
-          <!-- SECCIÓN DE PROVEEDORES -->
+
           <div class="dashboard-card" style="margin-bottom: 2rem">
             <h3>Proveedores Registrados</h3>
             <button class="btn btn-primary" onclick="abrirModalAgregarProveedor()" style="margin-bottom: 1rem">
@@ -67,7 +67,7 @@
           </div>
 
           <!-- SECCIÓN DE ÓRDENES DE COMPRA -->
-          <div class="dashboard-card">
+          <!-- <div class="dashboard-card">
             <h3>Órdenes de Compra</h3>
             <button class="btn btn-primary" onclick="abrirModalAgregarOrden()" style="margin-bottom: 1rem">
               📋 Nueva Orden
@@ -99,91 +99,8 @@
           </div>
         </div>
       </main>
-    </div>
+    </div> -->
 
-    <!-- MODAL: AGREGAR PROVEEDOR -->
-    <div id="proveedorModal" class="modal">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h2 id="proveedorModalTitle">Nuevo Proveedor</h2>
-          <button class="close-btn" onclick="closeModal('proveedorModal')">&times;</button>
-        </div>
-        <div class="modal-body" style="padding: 1rem">
-          <form id="proveedorForm">
-            <div class="form-group">
-              <label>Nombre de Empresa *</label>
-              <input type="text" id="proveedorNombre" required />
-            </div>
-            <div class="form-group">
-              <label>Contacto</label>
-              <input type="text" id="proveedorContacto" />
-            </div>
-            <div class="form-group">
-              <label>Teléfono</label>
-              <input type="tel" id="proveedorTelefono" />
-            </div>
-            <div class="form-group">
-              <label>Email</label>
-              <input type="email" id="proveedorEmail" />
-            </div>
-            <div class="form-group">
-              <label>Dirección</label>
-              <input type="text" id="proveedorDireccion" />
-            </div>
-          </form>
-        </div>
-        <div class="modal-footer">
-          <button class="btn btn-outline" onclick="closeModal('proveedorModal')">
-            Cancelar
-          </button>
-          <button class="btn btn-primary" onclick="guardarProveedor()">
-            Guardar
-          </button>
-        </div>
-      </div>
-    </div>
-
-    <!-- MODAL: AGREGAR ORDEN -->
-    <div id="ordenModal" class="modal">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h2>Nueva Orden de Compra</h2>
-          <button class="close-btn" onclick="closeModal('ordenModal')">&times;</button>
-        </div>
-        <div class="modal-body" style="padding: 1rem">
-          <form id="ordenForm">
-            <div class="form-group">
-              <label>Proveedor *</label>
-              <select id="ordenProveedor" required></select>
-            </div>
-            <div class="form-group">
-              <label>Producto *</label>
-              <select id="ordenProducto" required></select>
-            </div>
-            <div class="form-group">
-              <label>Cantidad *</label>
-              <input type="number" id="ordenCantidad" required min="1" />
-            </div>
-            <div class="form-group">
-              <label>Precio Unitario (€) *</label>
-              <input type="number" id="ordenPrecio" required min="0" step="0.01" />
-            </div>
-            <div class="form-group">
-              <label>Fecha Entrega Esperada</label>
-              <input type="date" id="ordenFecha" />
-            </div>
-          </form>
-        </div>
-        <div class="modal-footer">
-          <button class="btn btn-outline" onclick="closeModal('ordenModal')">
-            Cancelar
-          </button>
-          <button class="btn btn-primary" onclick="guardarOrden()">
-            Crear Orden
-          </button>
-        </div>
-      </div>
-    </div>
 
     <script src="js/utils.js"></script>
     <script src="js/proveedores.js"></script>

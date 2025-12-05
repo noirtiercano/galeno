@@ -15,8 +15,8 @@ while ($row = mysqli_fetch_assoc($result)) {
     
     if ($rol_usuario == 'admin') {
         echo '<td>
-                <a href="php/configuracion/editar_usuario.php?id='.$row['id'].'">✏️</a>
-                <a href="php/configuracion/eliminar_usuario.php?id='.$row['id'].'" onclick="return confirm(\'¿Seguro que deseas eliminar?\')">🗑️</a>
+                <a href="php/clientes/editar_cliente.php?id='.$row['id'].'">✏️</a>
+                <a href="php/clientes/eliminar_cliente.php?id='.$row['id'].'" onclick="return confirm(\'¿Seguro que deseas eliminar?\')">🗑️</a>
               </td>';
     }
 

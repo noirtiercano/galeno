@@ -83,12 +83,12 @@ mysqli_close($conn);
                     </div>
 
                     <!-- ALERTAS DE VENCIMIENTO -->
-                    <div class="dashboard-card alert-card">
+                    <!-- <div class="dashboard-card alert-card">
                         <h3>⏰ Alertas de Vencimiento</h3>
                         <div class="alert-list">
                             <?php include('php/dashboard/alertas_vencimiento.php'); ?>
                         </div>
-                    </div>
+                    </div> -->
 
                     <!-- VENTAS RECIENTES -->
                     <div class="dashboard-card sales-card">

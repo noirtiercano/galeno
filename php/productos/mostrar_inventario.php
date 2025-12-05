@@ -1,5 +1,6 @@
 <?php
 
+
 include($_SERVER['DOCUMENT_ROOT'] . "/php/conexion.php");
 
 
@@ -36,6 +37,21 @@ if (mysqli_num_rows($result) > 0) {
             }
         }
         $stock = $entrada - $salida;
+
+
+        $fecha_caducidad = $row['fecha_caducidad'];
+        $fecha_actual = date('Y-m-d');
+
+
+        $estilo = "";
+        $disabled = "";
+        
+        if ($fecha_caducidad < $fecha_actual) {
+             $estilo = 'style="color: red;"';
+             $disabled = 'disabled';
+         }
+
+
         
         echo '<tr>
                 <td>' . $row['codigo'] . '</td>
@@ -44,7 +60,8 @@ if (mysqli_num_rows($result) > 0) {
                 <td>' . $row['precio'] . '</td>
                 <td>' . $stock . '</td>
                 <td>' . $row['lote'] . '</td>
-                <td>' . $row['fecha_caducidad'] . '</td>
+                
+                <td '.$estilo.'>' . $row['fecha_caducidad'] . '</td>
                 <td>';
                 
         if ($row['activo'] == 1) {
@@ -58,7 +75,7 @@ if (mysqli_num_rows($result) > 0) {
                   <form action="../../php/carrito/agregar_carrito.php" method="POST" style="display:inline;">
                       <input type="hidden" name="producto_id" value="' . $row['id'] . '">
                       <input type="hidden" name="cantidad" value="1">
-                      <button type="submit" style="background:none; border:none; cursor:pointer; font-size:18px;">
+                      <button type="submit" style="background:none; border:none; cursor:pointer; font-size:18px;" '.$disabled.'>
                           🛒
                       </button>
                   </form>

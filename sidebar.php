@@ -28,7 +28,7 @@ $rol_usuario = $_SESSION['rol'] ?? '';
 
     <li><a href="carrito.php" class="nav-link <?php if($pagina=="carrito"){echo "active";}?>" data-module="carrito">
             <span class="icon">🛒</span>
-            <span>Carrito</span>
+            <span>Carrito de Ventas</span>
         </a></li>
     
 
@@ -46,9 +46,9 @@ $rol_usuario = $_SESSION['rol'] ?? '';
                 <span>Entradas</span>
             </a></li>
 
-        <li><a href="ordenes_compras.php" class="nav-link <?php if($pagina=="ordenes_compras"){echo "active";}?>" data-module="ordenes_compras">
+        <li><a href="carrito_compras.php" class="nav-link <?php if($pagina=="carrito_compras"){echo "active";}?>" data-module="carrito_compras">
             <span class="icon">📋</span>
-            <span>Ordenes de Compra</span>
+            <span>Carrito de Compra</span>
         </a></li>
         
 

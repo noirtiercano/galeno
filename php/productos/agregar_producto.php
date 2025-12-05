@@ -33,7 +33,7 @@ if (isset($_GET["btn-agregar"])) {
         
         // Solo agregar la entrada, NO crear producto nuevo
         $sql_entrada = "INSERT INTO entradas 
-                       (producto_id, proveedor_id, codigo, nombre, descripcion, precio, stock, lote, fecha_caducidad, fecha_entrada) 
+                       (producto_id, proveedor_id, codigo, nombre, descripcion, precio, cantidad, lote, fecha_caducidad, fecha_entrada) 
                        VALUES 
                        ('$producto_id', '$proveedor_id', '$cod_producto', '$nombre', '$descripcion', '$precio', '$cantidad', '$num_lote', '$fecha_caducidad', '$fecha_entrada')";
         
@@ -66,7 +66,7 @@ if (isset($_GET["btn-agregar"])) {
             
             // Luego crear la entrada
             $sql_entrada = "INSERT INTO entradas 
-                           (producto_id, proveedor_id, codigo, nombre, descripcion, precio, stock, lote, fecha_caducidad, fecha_entrada) 
+                           (producto_id, proveedor_id, codigo, nombre, descripcion, precio, cantidad, lote, fecha_caducidad, fecha_entrada) 
                            VALUES 
                            ('$producto_id', '$proveedor_id', '$cod_producto', '$nombre', '$descripcion', '$precio', '$cantidad', '$num_lote', '$fecha_caducidad', '$fecha_entrada')";
            

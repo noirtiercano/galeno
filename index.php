@@ -209,7 +209,7 @@ session_destroy();
 
         <div class="login-body">
 
-        <div class="alert">Usuario o contraseña incorrectos</div> 
+        <!-- <div class="alert">Usuario o contraseña incorrectos</div>  -->
 
             <form action="login.php" method="post">
                 <div class="form-group">

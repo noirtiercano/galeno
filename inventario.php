@@ -2,7 +2,7 @@
 session_start(); // AL INICIO DE CADA PÁGINA PRINCIPAL
 
 // Verificar login
-if(!isset($_SESSION['user'])){
+if (!isset($_SESSION['user'])) {
     header("location: index.php");
     exit();
 }
@@ -31,8 +31,8 @@ if(!isset($_SESSION['user'])){
                 </div>
             </div>
 
-                <?php $pagina = "inventario";
-                include('sidebar.php'); ?>
+            <?php $pagina = "inventario";
+            include('sidebar.php'); ?>
 
             <div class="sidebar-footer">
                 <a href="log_out.php" class="logout-btn">Cerrar sesión</a>
@@ -56,25 +56,27 @@ if(!isset($_SESSION['user'])){
             <!-- CONTENT AREA -->
             <div class="content-wrapper">
                 <!-- CONTROLES Y FILTROS -->
-                <div class="controls-section">
+                <!-- <div class="controls-section">
                     <button class="btn btn-primary" onclick="openProductModal()">
                         ➕ <a href="php/productos/form_nuevo_producto.php">Nuevo Producto</a>
-                    </button>
+                    </button> -->
 
-                    <div class="filters-section">
-                        <form action="" method="get">
-                            <input type="text" id="searchInput" placeholder="🔍 Buscar producto..." class="search-input" name="busqueda" value="<?php if(isset($_GET['busqueda'])){echo $_GET['busqueda'];}?>">
-                            <input type="submit" value="Buscar" name="btnBuscar">
-                        </form>
-                        
-                        <select id="filterStatus" name="filterStatus" class="filter-select" onchange="filtrarProductos()">
-                            <option value="">Todos los estados</option>
-                            <option value="stock-bajo">Stock Bajo</option>
-                            <option value="proximo-vencer">Próximo a Vencer</option>
-                            <option value="ok">OK</option>
-                        </select>
-                    </div>
+                <div class="filters-section">
+                    <form action="" method="get">
+                        <input type="text" id="searchInput" placeholder="🔍 Buscar producto..." class="search-input" name="busqueda" value="<?php if (isset($_GET['busqueda'])) {
+                                                                                                                                                echo $_GET['busqueda'];
+                                                                                                                                            } ?>">
+                        <input type="submit" value="Buscar" name="btnBuscar">
+                    </form>
+
+                    <select id="filterStatus" name="filterStatus" class="filter-select" onchange="filtrarProductos()">
+                        <option value="">Todos los estados</option>
+                        <option value="stock-bajo">Stock Bajo</option>
+                        <option value="proximo-vencer">Próximo a Vencer</option>
+                        <option value="ok">OK</option>
+                    </select>
                 </div>
+                <!-- </div> -->
 
 
                 <div class="table-container">
@@ -104,6 +106,12 @@ if(!isset($_SESSION['user'])){
     <!-- SCRIPTS -->
     <script src="js/utils.js"></script>
     <script src="js/inventario.js"></script>
+
+    <?php
+    if (isset($_GET['msj'])) {
+        echo "<script>alert('" . $_GET['msj'] . "'); </script>";
+    }
+    ?>
 </body>
 
 </html>

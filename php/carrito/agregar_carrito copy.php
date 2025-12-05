@@ -17,7 +17,7 @@ if (isset($_POST['producto_id']) && isset($_POST['cantidad'])) {
 
 
 
-    $msj = "";
+
     // Verificar si el producto ya está en el carrito del usuario
     $sql_verificar = "SELECT * FROM carritos WHERE usuario_id = '$usuario_id' AND producto_id = '$producto_id'";
     $result = mysqli_query($conn, $sql_verificar);
@@ -26,11 +26,11 @@ if (isset($_POST['producto_id']) && isset($_POST['cantidad'])) {
     if (mysqli_num_rows($result) > 0) {
         // Si ya existe, actualizar cantidad (sumar)
         $sql = "UPDATE carritos SET cantidad = cantidad + $cantidad WHERE usuario_id = '$usuario_id' AND producto_id = '$producto_id'";
-        $msj = "Producto se actualizo en el carrito";
+        $msj = "Producto actualizado en el carrito";
     } else {
         // Si no existe, insertar nuevo
         $sql = "INSERT INTO carritos (usuario_id, producto_id, cantidad) VALUES ('$usuario_id', '$producto_id', '$cantidad')";
-        $msj = "Producto agregado al carrito";
+        $msj = "Producto actualizado en el carrito";
     }
 
 
@@ -41,20 +41,28 @@ if (isset($_POST['producto_id']) && isset($_POST['cantidad'])) {
     $result2 = mysqli_query($conn, $sql_verificar2);
 
 
-    
+    $msj = "";
     if (mysqli_num_rows($result2) > 0) {
         // Si ya existe, actualizar cantidad (sumar)
         //echo "<script>alert('Este producto está vencido'); </script>";
         //header("Location: ../../inventario.php");
         $msj = "El producto está vencido";
     } else {
-        if (mysqli_query($conn, $sql)) {
-            //echo "<script>alert('porducto agregado  al carrito'); </script>";
-            //header("Location: ../../inventario.php");
-            //exit();
-             
+
+        if (mysqli_num_rows($result) > 0) {
+            $sql = "UPDATE carritos SET cantidad = cantidad + $cantidad WHERE usuario_id = '$usuario_id' AND producto_id = '$producto_id'";
+            if (mysqli_query($conn, $sql)) {
+                $msj = "Producto actualizado en el carrito";
+            }
         } else {
-            echo "Error: " . mysqli_error($conn);
+            if (mysqli_query($conn, $sql)) {
+                //echo "<script>alert('porducto agregado  al carrito'); </script>";
+                //header("Location: ../../inventario.php");
+                //exit();
+                $msj = "Producto agregado al carrito";
+            } else {
+                echo "Error: " . mysqli_error($conn);
+            }
         }
     }
 }
