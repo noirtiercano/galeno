@@ -34,12 +34,7 @@ if (!isset($_SESSION['user'])) {
             <?php $pagina = "inventario";
             include('sidebar.php'); ?>
 
-            <div class="sidebar-footer">
-                <a href="log_out.php" class="logout-btn">Cerrar sesión</a>
-                <!-- <button class="logout-btn" onclick="confirmarCierre()">
-            🚪 Cerrar Sesión
-          </button> -->
-            </div>
+
         </nav>
 
         <!-- MAIN CONTENT -->
@@ -55,11 +50,6 @@ if (!isset($_SESSION['user'])) {
 
             <!-- CONTENT AREA -->
             <div class="content-wrapper">
-                <!-- CONTROLES Y FILTROS -->
-                <!-- <div class="controls-section">
-                    <button class="btn btn-primary" onclick="openProductModal()">
-                        ➕ <a href="php/productos/form_nuevo_producto.php">Nuevo Producto</a>
-                    </button> -->
 
                 <div class="filters-section">
                     <form action="" method="get">

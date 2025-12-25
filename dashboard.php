@@ -36,11 +36,8 @@ mysqli_close($conn);
                 </div>
             </div>
 
-            <?php $pagina = "dashboard"; include('sidebar.php'); ?>
-
-            <div class="sidebar-footer">
-                <a href="log_out.php" class="logout-btn">Cerrar sesión</a>
-            </div>
+            <?php $pagina = "dashboard";
+            include('sidebar.php'); ?>
         </nav>
 
         <!-- MAIN CONTENT -->
@@ -58,7 +55,7 @@ mysqli_close($conn);
             <div class="content-wrapper">
                 <!-- ALERTAS Y RESUMEN -->
                 <div class="dashboard-grid">
-                    
+
                     <!-- RESUMEN GENERAL -->
                     <div class="dashboard-card stats-card">
                         <h3>📊 Resumen General</h3>
@@ -97,7 +94,7 @@ mysqli_close($conn);
                             <?php include('php/dashboard/ventas_recientes.php'); ?>
                         </div>
                     </div>
-                    
+
                 </div>
             </div>
         </main>

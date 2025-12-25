@@ -24,10 +24,6 @@
 
             <?php $pagina = "entradas";
             include('sidebar.php'); ?>
-
-            <div class="sidebar-footer">
-                <a href="log_out.php" class="logout-btn">Cerrar sesión</a>
-            </div>
         </nav>
      
      <main class="main-content">

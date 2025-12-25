@@ -20,12 +20,7 @@
       <?php $pagina = "proveedores";
       include('sidebar.php'); ?>
 
-        <div class="sidebar-footer">
-          <a href="log_out.php" class="logout-btn">Cerrar sesión</a>
-          <!-- <button class="logout-btn" onclick="confirmarCierre()">
-            🚪 Cerrar Sesión
-          </button> -->
-        </div>
+
       </aside>
 
 
