@@ -1,6 +1,4 @@
-/* ============================================
-   GALENO - ESTILOS GENERALES
-   ============================================ */
+/*ESTILOS GENERALES*/
 
 * {
   margin: 0;
@@ -10,9 +8,9 @@
 
 :root {
   /* Colores Primarios */
-  --color-primary: #10b981;
-  --color-primary-dark: #059669;
-  --color-primary-light: #6ee7b7;
+  --color-primary: #1C4D8D;
+  --color-primary-dark: #1C4D8D;
+  --color-primary-light: #4988C4;
 
   /* Colores Secundarios */
   --color-secondary: #3b82f6;
@@ -20,8 +18,8 @@
   --color-secondary-light: #93c5fd;
 
   /* Colores Neutros */
-  --color-white: #ffffff;
-  --color-gray-50: #f9fafb;
+  --color-white: #F3F8FF;
+  --color-gray-50: #F3F8FF;
   --color-gray-100: #f3f4f6;
   --color-gray-200: #e5e7eb;
   --color-gray-300: #d1d5db;
@@ -70,9 +68,7 @@ body {
   line-height: 1.6;
 }
 
-/* ============================================
-   LAYOUT PRINCIPAL
-   ============================================ */
+/*LAYOUT PRINCIPAL*/
 
 .app-container {
   display: flex;
@@ -173,9 +169,7 @@ body {
   min-height: 100vh; 
 }
 
-/* ============================================
-   HEADER
-   ============================================ */
+/*HEADER*/
 
 .top-header {
   background-color: var(--color-white);
@@ -200,7 +194,7 @@ body {
 
 .user-info {
   background-color: var(--color-primary-light);
-  color: var(--color-gray-900);
+  color: var(--color-white);
   padding: var(--spacing-sm) var(--spacing-lg);
   border-radius: var(--radius-md);
   font-weight: 600;
@@ -210,9 +204,7 @@ body {
   color: var(--color-gray-500);
 }
 
-/* ============================================
-   CONTENT WRAPPER
-   ============================================ */
+/*CONTENT WRAPPER*/
 
 .content-wrapper {
   flex: 1;
@@ -220,9 +212,7 @@ body {
   overflow-y: auto;
 }
 
-/* ============================================
-   DASHBOARD GRID
-   ============================================ */
+/*DASHBOARD GRID*/
 
 .dashboard-grid {
   display: grid;
@@ -342,9 +332,7 @@ body {
   font-size: 1.125rem;
 }
 
-/* ============================================
-   FORMULARIOS
-   ============================================ */
+/*FORMULARIOS*/
 
 .form-group {
   margin-bottom: var(--spacing-lg);
@@ -387,9 +375,7 @@ textarea {
   min-height: 100px;
 }
 
-/* ============================================
-   BOTONES
-   ============================================ */
+/* BOTONES*/
 
 .btn {
   padding: var(--spacing-md) var(--spacing-lg);
@@ -433,13 +419,13 @@ textarea {
 }
 
 .btn-outline {
-  background-color: transparent;
+  background-color: var(--color-danger);
   color: var(--color-primary);
-  border: 2px solid var(--color-primary);
+  border: 1px solid black;
 }
 
 .btn-outline:hover {
-  background-color: var(--color-primary-light);
+  background-color: red;
 }
 
 .btn-sm {
@@ -451,9 +437,7 @@ textarea {
   width: 100%;
 }
 
-/* ============================================
-   TABLAS
-   ============================================ */
+/*TABLAS*/
 
 .table-container {
   background-color: var(--color-white);
@@ -524,9 +508,7 @@ tbody tr:hover {
   color: #1e40af;
 }
 
-/* ============================================
-   MODALES
-   ============================================ */
+/*MODALES*/
 
 .modal {
   display: none;
@@ -592,9 +574,7 @@ tbody tr:hover {
   border-top: 1px solid var(--color-gray-200);
 }
 
-/* ============================================
-   ALERTAS Y NOTIFICACIONES
-   ============================================ */
+/*ALERTAS Y NOTIFICACIONES*/
 
 .alert {
   padding: var(--spacing-lg);
@@ -633,9 +613,7 @@ tbody tr:hover {
   font-weight: bold;
 }
 
-/* ============================================
-   ANIMACIONES
-   ============================================ */
+/*ANIMACIONES */
 
 @keyframes fadeIn {
   from {
@@ -755,4 +733,5 @@ tbody tr:hover {
 
 a {
   text-decoration: none;
+  color: white;
 }
