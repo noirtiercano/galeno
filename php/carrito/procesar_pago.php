@@ -19,7 +19,7 @@ if (isset($_POST['cliente_identificacion'])) {
 
     if (mysqli_num_rows($result) == 0) {
         
-        mysqli_query($conn, "INSERT INTO clientes (identificacion, nombre, telefono, activo) VALUES ('$cliente_identificacion', '$cliente_nombre', '$cliente_telefono', 1)");
+        mysqli_query($conn, "INSERT INTO clientes (identificacion, nombre, telefono) VALUES ('$cliente_identificacion', '$cliente_nombre', '$cliente_telefono')");
     }
     
     
