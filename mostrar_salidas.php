@@ -1,33 +1,21 @@
 <?php
-
 include($_SERVER['DOCUMENT_ROOT'] ."/php/conexion.php");
 
-$sql = "SELECT * FROM salidas ORDER BY fecha_venta DESC";
+// Usamos LEFT JOIN para asegurar que la venta se muestre aunque el cliente/producto ya no existan
+$sql = "SELECT s.*, p.nombre AS nombre_producto, c.nombre AS nombre_cliente 
+        FROM salidas s
+        LEFT JOIN productos p ON s.producto_id = p.id
+        LEFT JOIN clientes c ON s.cliente_identificacion = c.identificacion
+        ORDER BY s.fecha_venta DESC";
+
 $result = mysqli_query($conn, $sql);
 
 if (mysqli_num_rows($result) > 0) {
     while($row = mysqli_fetch_assoc($result)) {
         
-        // Obtener nombre del producto
-        $producto_id = $row['producto_id'];
-        $sql_producto = "SELECT nombre FROM productos WHERE id = '$producto_id'";
-
-        $result_producto = mysqli_query($conn, $sql_producto);
-        $producto = mysqli_fetch_assoc($result_producto);
-
-        $nombre_producto = $producto['nombre'];
-        
-        // Obtener nombre del cliente (opcional)
-        $cliente_id = $row['cliente_identificacion'];
-        $sql_cliente = "SELECT nombre FROM clientes WHERE identificacion = '$cliente_id'";
-
-        $result_cliente = mysqli_query($conn, $sql_cliente);
-        if(mysqli_num_rows($result_cliente) > 0){
-            $cliente = mysqli_fetch_assoc($result_cliente);
-            $nombre_cliente = $cliente['nombre'];
-        } else {
-            $nombre_cliente = "INSERT INTO clientes (nombre, telefono, identificacion) VALUES ('$cliente_id', '$cliente_id', '$cliente_id', '$cliente_id')";
-        }
+        // Evitamos valores nulos en la tabla si la relación en la DB se rompe
+        $nombre_cliente = $row['nombre_cliente'] ?? 'Cliente no registrado';
+        $nombre_producto = $row['nombre_producto'] ?? 'Producto no encontrado';
         
         echo '<tr>
                 <td>'.date('d/m/Y H:i', strtotime($row['fecha_venta'])).'</td>
@@ -44,5 +32,4 @@ if (mysqli_num_rows($result) > 0) {
 }
 
 mysqli_close($conn);
-
 ?>
