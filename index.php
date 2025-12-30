@@ -1,13 +1,10 @@
 <?php
 session_start();
-if(isset($_SESSION['msj_error'])){
-    echo $_SESSION['msj_error'];
-}
-session_destroy();
 ?>
 
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -44,6 +41,7 @@ session_destroy();
                 opacity: 0;
                 transform: translateY(30px);
             }
+
             to {
                 opacity: 1;
                 transform: translateY(0);
@@ -85,9 +83,19 @@ session_destroy();
         }
 
         @keyframes shake {
-            0%, 100% { transform: translateX(0); }
-            25% { transform: translateX(-10px); }
-            75% { transform: translateX(10px); }
+
+            0%,
+            100% {
+                transform: translateX(0);
+            }
+
+            25% {
+                transform: translateX(-10px);
+            }
+
+            75% {
+                transform: translateX(10px);
+            }
         }
 
         .form-group {
@@ -200,6 +208,7 @@ session_destroy();
         }
     </style>
 </head>
+
 <body>
     <div class="login-container">
         <div class="login-header">
@@ -208,7 +217,14 @@ session_destroy();
         </div>
 
         <div class="login-body">
-
+            <?php if (isset($_SESSION['msj_error'])): ?>
+                <div class="alert">
+                    <?php
+                    echo $_SESSION['msj_error'];
+                    unset($_SESSION['msj_error']);
+                    ?>
+                </div>
+            <?php endif; ?>
             <form action="login.php" method="post">
                 <div class="form-group">
                     <label>Usuario</label>
@@ -225,7 +241,7 @@ session_destroy();
                         <input name="password" type="password" placeholder="Ingrese su contraseña" required>
                     </div>
                 </div>
-                
+
                 <button type="submit" name="btnSave" class="btn-submit">
                     Iniciar Sesión
                 </button>
@@ -237,4 +253,5 @@ session_destroy();
         </div>
     </div>
 </body>
+
 </html>
