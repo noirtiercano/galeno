@@ -5,10 +5,9 @@ if (isset($_POST["btnSave"])) {
     
     $user = $_POST["user"];
     $contrasena = $_POST["password"];
-    $rol = $_POST["rol"];
 
     // Consulta que verifica usuario, contraseña Y rol
-    $sql = "SELECT * FROM usuarios WHERE nombre='$user' AND clave='$contrasena' AND rol='$rol'";
+    $sql = "SELECT * FROM usuarios WHERE nombre='$user' AND clave='$contrasena'";
     $result = mysqli_query($conn, $sql);
 
     session_start();
@@ -21,21 +20,12 @@ if (isset($_POST["btnSave"])) {
         $_SESSION['rol'] = $usuario['rol'];
         $_SESSION['user_id'] = $usuario['id'];
         $_SESSION['correo'] = $usuario['correo'];
+    
+        header("location: dashboard.php");
+        exit();
 
-        // Redirigir según el rol
-        if($rol == "admin"){
-            header("location: dashboard.php");
-            exit();
-        } else if($rol == "farmaceutico"){
-            header("location: dashboard.php");
-            exit();
-        } else if($rol == "cajero"){
-            header("location: dashboard.php");
-            exit();
-        }
-        
     } else {
-        $_SESSION['msj_error'] = "Usuario, contraseña o rol incorrectos";
+        $_SESSION['msj_error'] = "Usuario o contraseña incorrectos";
         header("location: index.php");
         exit();
     }

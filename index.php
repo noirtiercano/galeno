@@ -209,8 +209,6 @@ session_destroy();
 
         <div class="login-body">
 
-        <!-- <div class="alert">Usuario o contraseña incorrectos</div>  -->
-
             <form action="login.php" method="post">
                 <div class="form-group">
                     <label>Usuario</label>
@@ -227,20 +225,7 @@ session_destroy();
                         <input name="password" type="password" placeholder="Ingrese su contraseña" required>
                     </div>
                 </div>
-
-                <div class="form-group">
-                    <label>Rol</label>
-                    <div class="input-wrapper">
-                        <span class="input-icon">👔</span>
-                        <select name="rol" required>
-                            <option value="">Seleccione un rol</option>
-                            <option value="admin">Administrador</option>
-                            <option value="farmaceutico">Farmacéutico</option>
-                            <option value="cajero">Cajero</option>
-                        </select>
-                    </div>
-                </div>
-
+                
                 <button type="submit" name="btnSave" class="btn-submit">
                     Iniciar Sesión
                 </button>
@@ -248,7 +233,7 @@ session_destroy();
         </div>
 
         <div class="login-footer">
-            © 2024 GALENO. Todos los derechos reservados.
+            2024 GALENO
         </div>
     </div>
 </body>
