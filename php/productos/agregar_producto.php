@@ -36,7 +36,7 @@ if (isset($_POST["btn-agregar"])) {
         
         if(mysqli_query($conn, $sql_entrada)){
             echo "<p style='color: green;'>✅ Entrada agregada correctamente!</p>";
-            echo "<a href='../../inventario.php'>Volver al inventario</a>";
+            header("location: ../../inventario.php");
         } else {
             echo "<p style='color: red;'>❌ Error al agregar entrada: " . mysqli_error($conn) . "</p>";
         }
@@ -66,7 +66,7 @@ if (isset($_POST["btn-agregar"])) {
            
             if(mysqli_query($conn, $sql_entrada)){
                 echo "<p style='color: green;'>✅ Entrada agregada correctamente!</p>";
-                echo "<a href='../../inventario.php'>Volver al inventario</a>";
+                 header("location: ../../inventario.php");
             } else {
                 echo "<p style='color: red;'>❌ Error al agregar entrada: " . mysqli_error($conn) . "</p>";
             }
