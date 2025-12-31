@@ -15,7 +15,7 @@
     </div>
 
     <div class="modal-body" style="padding: 1rem">
-        <form id="clienteForm" action="agregar_producto.php" method="get">
+        <form id="clienteForm" action="agregar_producto.php" method="post">
 
             <div class="form-group">
                 <label>Fecha entrada *</label>

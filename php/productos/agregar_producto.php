@@ -2,27 +2,24 @@
 
 include($_SERVER['DOCUMENT_ROOT'] ."/php/conexion.php");
 
-if (isset($_GET["btn-agregar"])) {
+if (isset($_POST["btn-agregar"])) {
     
-    // Recibir datos del formulario
-    $cod_producto = $_GET["cod_producto"];
-    $nombre = $_GET["nombre_producto"];
-    $descripcion = $_GET["descripcion"];
-    $precio = $_GET["precio"];
-    $cantidad = $_GET["cantidad"];
-    $num_lote = $_GET["num_lote"];
-    $fecha_caducidad = $_GET["fecha_caducidad"];
-    $fecha_entrada = $_GET["fecha_entrada"];
-    $proveedor_id = $_GET["proveedor_id"];
+    $cod_producto = $_POST["cod_producto"];
+    $nombre = $_POST["nombre_producto"];
+    $descripcion = $_POST["descripcion"];
+    $precio = $_POST["precio"];
+    $cantidad = $_POST["cantidad"];
+    $num_lote = $_POST["num_lote"];
+    $fecha_caducidad = $_POST["fecha_caducidad"];
+    $fecha_entrada = $_POST["fecha_entrada"];
+    $proveedor_id = $_POST["proveedor_id"];
 
-    // ===== VERIFICAR SI EL PRODUCTO YA EXISTE =====
+
     $sql_verificar = "SELECT id, codigo, nombre FROM productos WHERE codigo = '$cod_producto'";
     $resultado = mysqli_query($conn, $sql_verificar);
 
-    // ===== CASO 1: EL PRODUCTO YA EXISTE =====
     if (mysqli_num_rows($resultado) > 0) {
         
-        // Obtener el ID del producto existente
         $row = mysqli_fetch_assoc($resultado);
         $producto_id = $row['id'];
         
@@ -44,7 +41,7 @@ if (isset($_GET["btn-agregar"])) {
             echo "<p style='color: red;'>❌ Error al agregar entrada: " . mysqli_error($conn) . "</p>";
         }
     } 
-    // ===== CASO 2: EL PRODUCTO NO EXISTE (ES NUEVO) =====
+
     else {
         
         echo "<h2>🆕 Producto nuevo</h2>";
@@ -52,19 +49,16 @@ if (isset($_GET["btn-agregar"])) {
         echo "<p>Código: <strong>$cod_producto</strong></p>";
         echo "<br>";
         
-        // Primero crear el producto (SIN columna stock)
         $sql_producto = "INSERT INTO productos 
                         (codigo, nombre, descripcion, precio, lote, fecha_caducidad, fecha_creacion, fecha_actualizacion, activo) 
                         VALUES 
                         ('$cod_producto', '$nombre', '$descripcion', '$precio', '$num_lote', '$fecha_caducidad', NOW(), NOW(), 1)";
 
         if (mysqli_query($conn, $sql_producto)) {
-            
-            // Obtener el ID del producto recién creado
+
             $producto_id = mysqli_insert_id($conn);
             echo "<p style='color: green;'>✅ Producto creado correctamente! ID: $producto_id</p>";
             
-            // Luego crear la entrada
             $sql_entrada = "INSERT INTO entradas 
                            (producto_id, proveedor_id, codigo, nombre, descripcion, precio, cantidad, lote, fecha_caducidad, fecha_entrada) 
                            VALUES 
