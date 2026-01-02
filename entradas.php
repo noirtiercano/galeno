@@ -38,19 +38,14 @@
 
             <div class="content-wrapper">
 
-                <!-- <div class="controls-section">
                     <div class="filters-section">
-                    <button class="btn btn-primary" onclick="openProductModal()">
-                        ➕ <a href="php/productos/form_nuevo_producto.php">Nueva Entrada</a>
-                    </button> -->
                     
                          <form action="" method="get">
                             <input type="text" id="searchInput" placeholder="🔍 Buscar producto..." class="search-input" name="busqueda" value="<?php if(isset($_GET['busqueda'])){echo $_GET['busqueda'];}?>">
                             <input type="submit" value="Buscar" name="btnBuscar">
                         </form>
 
-                    <!-- </div>
-                </div> -->
+                    </div>
 
 
                 <div class="table-container">

@@ -28,7 +28,7 @@
         </nav>
      
      <main class="main-content">
-            <!-- HEADER -->
+
             <header class="top-header">
                 <h2>Salidas</h2>
                 <div class="header-actions">
@@ -37,13 +37,18 @@
                 </div>
             </header>
 
-            <!-- CONTENT AREA -->
+
             <div class="content-wrapper">
-                <!-- CONTROLES Y FILTROS -->
+
                 <div class="controls-section">
                     <div class="filters-section">
 
-                        <?php include('busqueda.php'); ?>
+                    <form action="" method="get">
+                        <input type="text" id="searchInput" placeholder="🔍 Buscar producto..." class="search-input" name="busqueda" value="<?php if (isset($_GET['busqueda'])) {
+                                                                                                                                                echo $_GET['busqueda'];
+                                                                                                                                            } ?>">
+                        <input type="submit" value="Buscar" name="btnBuscar">
+                    </form>
 
                     </div>
                 </div>

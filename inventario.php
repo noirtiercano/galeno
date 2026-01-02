@@ -1,7 +1,6 @@
 <?php
-session_start(); // AL INICIO DE CADA PÁGINA PRINCIPAL
+session_start(); 
 
-// Verificar login
 if (!isset($_SESSION['user'])) {
     header("location: index.php");
     exit();
@@ -19,7 +18,7 @@ if (!isset($_SESSION['user'])) {
 
 <body>
     <div class="app-container">
-        <!-- SIDEBAR NAVIGATION -->
+
         <nav class="sidebar">
             <div class="sidebar-header">
                 <div class="logo">
@@ -37,9 +36,9 @@ if (!isset($_SESSION['user'])) {
 
         </nav>
 
-        <!-- MAIN CONTENT -->
+
         <main class="main-content">
-            <!-- HEADER -->
+
             <header class="top-header">
                 <h2>Inventario - Gestión de Productos</h2>
                 <div class="header-actions">
@@ -48,7 +47,7 @@ if (!isset($_SESSION['user'])) {
                 </div>
             </header>
 
-            <!-- CONTENT AREA -->
+
             <div class="content-wrapper">
 
                 <div class="filters-section">
@@ -66,7 +65,7 @@ if (!isset($_SESSION['user'])) {
                         <option value="ok">OK</option>
                     </select>
                 </div>
-                <!-- </div> -->
+
 
 
                 <div class="table-container">
@@ -93,7 +92,7 @@ if (!isset($_SESSION['user'])) {
         </main>
     </div>
 
-    <!-- SCRIPTS -->
+
     <script src="js/utils.js"></script>
     <script src="js/inventario.js"></script>
 

@@ -12,7 +12,6 @@
 
 <body>
   <div class="app-container">
-    <!-- SIDEBAR -->
     <aside class="sidebar">
       <div class="sidebar-header">
         <div class="logo">
@@ -39,16 +38,17 @@
 
 
       <div class="content-wrapper">
-        <div style="display: flex; gap: 2rem; margin-bottom: 2rem">
-          <button class="btn btn-primary" onclick="abrirModalAgregarCliente()">
+          <button class="btn btn-primary">
             ➕ <a href="php/clientes/form_nuevo_cliente.php">Nuevo Cliente</a>
           </button>
-          <input
-            type="text"
-            id="searchCliente"
-            placeholder="Buscar cliente..."
-            style="flex: 1; max-width: 300px"
-            onkeyup="filtrarClientes()" />
+          
+        <div class="filters-section">
+                    <form action="" method="get">
+                        <input type="text" id="searchInput" placeholder="🔍 Buscar producto..." class="search-input" name="busqueda" value="<?php if (isset($_GET['busqueda'])) {
+                                                                                                                                                echo $_GET['busqueda'];
+                                                                                                                                            } ?>">
+                        <input type="submit" value="Buscar" name="btnBuscar">
+                    </form>
         </div>
 
 
