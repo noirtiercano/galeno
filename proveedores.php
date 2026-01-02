@@ -61,40 +61,6 @@
             </div>
           </div>
 
-          <!-- SECCIÓN DE ÓRDENES DE COMPRA -->
-          <!-- <div class="dashboard-card">
-            <h3>Órdenes de Compra</h3>
-            <button class="btn btn-primary" onclick="abrirModalAgregarOrden()" style="margin-bottom: 1rem">
-              📋 Nueva Orden
-            </button>
-
-            <div class="table-container">
-              <table>
-                <thead>
-                  <tr>
-                    <th>Orden ID</th>
-                    <th>Proveedor</th>
-                    <th>Producto</th>
-                    <th>Cantidad</th>
-                    <th>Precio Unitario</th>
-                    <th>Total</th>
-                    <th>Estado</th>
-                    <th>Acciones</th>
-                  </tr>
-                </thead>
-                <tbody id="ordenesTable">
-                  <tr>
-                    <td colspan="8" style="text-align: center; color: var(--color-gray-400)">
-                      Cargando órdenes...
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
-        </div>
-      </main>
-    </div> -->
 
 
     <script src="js/utils.js"></script>

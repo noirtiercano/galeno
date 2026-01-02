@@ -55,7 +55,7 @@ if (!isset($_SESSION['user'])) {
                         <input type="text" id="searchInput" placeholder="🔍 Buscar producto..." class="search-input" name="busqueda" value="<?php if (isset($_GET['busqueda'])) {
                                                                                                                                                 echo $_GET['busqueda'];
                                                                                                                                             } ?>">
-                        <input type="submit" value="Buscar" name="btnBuscar">
+                        <input type="submit" class="btn btn-primary btn-search" value="Buscar" name="btnBuscar" >
                     </form>
 
                     <select id="filterStatus" name="filterStatus" class="filter-select" onchange="filtrarProductos()">

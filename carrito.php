@@ -41,7 +41,7 @@ $total_compra = 0;
         </div>
       </header>
 
-      <div class="table-container">
+      <div class="dashboard-card">
         <table id="productosTable">
           <thead>
             <tr>

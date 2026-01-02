@@ -41,8 +41,8 @@
                     <div class="filters-section">
                     
                          <form action="" method="get">
-                            <input type="text" id="searchInput" placeholder="🔍 Buscar producto..." class="search-input" name="busqueda" value="<?php if(isset($_GET['busqueda'])){echo $_GET['busqueda'];}?>">
-                            <input type="submit" value="Buscar" name="btnBuscar">
+                            <input type="text" id="searchInput" placeholder="🔍 Buscar entrada..." class="search-input" name="busqueda" value="<?php if(isset($_GET['busqueda'])){echo $_GET['busqueda'];}?>">
+                            <input type="submit" value="Buscar" class="btn btn-primary btn-search" name="btnBuscar">
                         </form>
 
                     </div>

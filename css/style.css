@@ -1,5 +1,4 @@
 @import "variables.css";
-/*ESTILOS GENERALES*/
 
 * {
   margin: 0;
@@ -296,6 +295,24 @@ label {
   color: var(--color-gray-700);
 }
 
+.search-form {
+    display: flex;
+    gap: var(--spacing-md); /* Espacio entre el input y el botón */
+    align-items: center;
+    margin-bottom: var(--spacing-xl);
+}
+
+.search-input {
+    flex: 1; /* Hace que el buscador ocupe el espacio disponible */
+    max-width: 500px; /* Evita que sea gigante en pantallas grandes */
+}
+
+/* Ajuste para que el botón de búsqueda no sea tan alto como uno normal si es necesario */
+.btn-search {
+    padding: 10px 20px; 
+    height: fit-content;
+}
+
 input[type="text"],
 input[type="email"],
 input[type="number"],
@@ -329,9 +346,9 @@ textarea {
 /* BOTONES*/
 
 .btn {
-  padding: var(--spacing-md) var(--spacing-lg);
+  padding: var(--spacing-md) var(--spacing-md);
   border: none;
-  border-radius: var(--radius-md);
+  border-radius: var(--radius-lg);
   font-size: 1rem;
   font-weight: 600;
   cursor: pointer;
